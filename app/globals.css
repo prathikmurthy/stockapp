@@ -116,6 +116,9 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    background-color: #000;
+  }
   body {
     @apply text-foreground;
     background: rgb(0,0,0);
@@ -128,11 +131,16 @@
   }
 }
 
-body::before {
+body::after {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: -1;
+  z-index: 1;
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.95) 100%);
+}
+
+body > * {
+  position: relative;
+  z-index: 2;
 }
