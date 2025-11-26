@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server';
 // Routes that don't require authentication
 const publicRoutes = ['/login', '/auth/callback'];
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Allow public routes

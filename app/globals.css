@@ -133,11 +133,6 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.95) 100%);
-}
-
-body > * {
-  position: relative;
-  z-index: 1;
 }

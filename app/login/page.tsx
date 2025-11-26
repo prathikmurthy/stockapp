@@ -53,7 +53,7 @@ function LoginContent() {
           </p>
         </div>
 
-        <div className="mt-8 rounded-xl border border-white/10 bg-black/60 p-8 backdrop-blur-sm">
+        <div className="mt-8 rounded-xl border border-white/10 bg-black/1 p-8 backdrop-blur-[1px]">
           {error && (
             <div className="mb-4 rounded-lg bg-red-500/10 p-3 text-sm text-red-400">
               {error}
@@ -90,7 +90,7 @@ function LoginContent() {
             {isSigningIn ? "Signing in..." : "Continue with Google"}
           </button>
 
-          <div className="mt-6">
+          {/* <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-white/10" />
@@ -101,12 +101,12 @@ function LoginContent() {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
-        <p className="text-center text-xs text-zinc-500">
+        {/* <p className="text-center text-xs text-zinc-500">
           By signing in, you agree to our Terms of Service and Privacy Policy
-        </p>
+        </p> */}
       </div>
     </div>
   );

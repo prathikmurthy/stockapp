@@ -8,6 +8,7 @@ import {
   Settings,
   CircleUserRound,
   LogOut,
+  Cog,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { useRouter } from "next/navigation";
@@ -15,9 +16,10 @@ import pb from "@/lib/pocketbase";
 import Link from "next/link";
 
 const navIcons = [
-  { icon: Home, label: "Home", uri: "/" },
-  { icon: FolderOpen, label: "Files", uri: "/files" },
-  { icon: Database, label: "Database", uri: "/database" },
+//   { icon: Home, label: "Home", uri: "/" },
+  { icon: Cog, label: "Gears", uri: "/gears" },
+//   { icon: FolderOpen, label: "Files", uri: "/files" },
+//   { icon: Database, label: "Database", uri: "/database" },
 ];
 
 export default function Sidebar() {
