@@ -3,12 +3,9 @@
 import {
   Atom,
   Home,
-  FolderOpen,
-  Database,
   Settings,
   CircleUserRound,
   LogOut,
-  Cog,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { useRouter } from "next/navigation";
@@ -16,10 +13,7 @@ import pb from "@/lib/pocketbase";
 import Link from "next/link";
 
 const navIcons = [
-//   { icon: Home, label: "Home", uri: "/" },
-  { icon: Cog, label: "Gears", uri: "/gears" },
-//   { icon: FolderOpen, label: "Files", uri: "/files" },
-//   { icon: Database, label: "Database", uri: "/database" },
+  { icon: Home, label: "Home", uri: "/" }
 ];
 
 export default function Sidebar() {
@@ -28,7 +22,7 @@ export default function Sidebar() {
 
   const handleProfileClick = () => {
     if (isAuthenticated) {
-      // Could open a profile menu or navigate to profile page
+      // TODO: Add profile page
     } else {
       router.push("/login");
     }

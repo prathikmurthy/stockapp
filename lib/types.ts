@@ -2,7 +2,7 @@ export interface Gear {
   id: string;
   name: string;
   bore_type: 'hex' | 'keyed' | 'bearing';
-  bore_size: string; // e.g., "1/2", "3/8", "1.125", ".875"
+  bore_size: string;
   diametral_pitch: number;
   teeth: number;
   material: string;

@@ -67,7 +67,6 @@ export default function GearsPage() {
     }
   }, [user, authLoading, isAuthenticated, router]);
 
-  // Filter and search gears
   const filteredGears = useMemo(() => {
     return gears.filter((gear) => {
       const matchesSearch = searchQuery === "" || 
@@ -82,7 +81,6 @@ export default function GearsPage() {
     });
   }, [gears, searchQuery, statusFilter, materialFilter]);
 
-  // Group gears by bore type and size
   const groupedGears = useMemo(() => {
     const groups: Record<string, Gear[]> = {};
     
@@ -97,7 +95,6 @@ export default function GearsPage() {
     return groups;
   }, [filteredGears]);
 
-  // Get unique materials for filter
   const uniqueMaterials = useMemo(() => {
     return [...new Set(gears.map(g => g.material))];
   }, [gears]);
@@ -145,7 +142,7 @@ export default function GearsPage() {
   return (
     <div className="min-h-screen p-8">
       {/* Breadcrumb */}
-      <div className="mb-2 flex items-center gap-2 text-sm text-zinc-500">
+      <div className="mb-2 flex items-center gap-2 text-xl text-zinc-500">
         <Link href="/" className="hover:text-zinc-300">Inventory</Link>
         <ChevronRight size={14} />
         <span className="text-zinc-300">Gears</span>
@@ -209,7 +206,7 @@ export default function GearsPage() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="bg-zinc-900 border-white/10 w-48">
-              <div className="px-2 py-1.5 text-xs font-semibold text-zinc-500">Material</div>
+              <div className="px-2 py-1.5 text-lg font-semibold text-zinc-500">Material</div>
               <DropdownMenuItem onClick={() => setMaterialFilter(null)} className="text-zinc-300">
                 All Materials
               </DropdownMenuItem>
@@ -242,7 +239,7 @@ export default function GearsPage() {
             <Settings2 className="h-8 w-8 text-zinc-500" />
           </div>
           <h3 className="mb-2 text-lg font-medium text-white">No gears found</h3>
-          <p className="mb-4 text-sm text-zinc-500">
+          <p className="mb-4 text-xl text-zinc-500">
             {searchQuery || statusFilter || materialFilter 
               ? "Try adjusting your search or filters" 
               : "Get started by adding your first gear"}
@@ -271,26 +268,26 @@ export default function GearsPage() {
                   <Table>
                     <TableHeader>
                       <TableRow className="border-white/10 hover:bg-transparent">
-                        <TableHead className="text-zinc-500 w-24">ID</TableHead>
-                        <TableHead className="text-zinc-500">Name</TableHead>
-                        <TableHead className="text-zinc-500 w-20">Teeth</TableHead>
-                        <TableHead className="text-zinc-500 w-28">Material</TableHead>
-                        <TableHead className="text-zinc-500 w-32">Status</TableHead>
-                        <TableHead className="text-zinc-500 w-16 text-right">Qty</TableHead>
+                        <TableHead className="text-lg text-zinc-500 w-24">ID</TableHead>
+                        <TableHead className="text-lg text-zinc-500">Name</TableHead>
+                        <TableHead className="text-lg text-zinc-500 w-20">Teeth</TableHead>
+                        <TableHead className="text-lg text-zinc-500 w-28">Material</TableHead>
+                        <TableHead className="text-lg text-zinc-500 w-32">Status</TableHead>
+                        <TableHead className="text-lg text-zinc-500 w-16 text-right">Qty</TableHead>
                         <TableHead className="w-10"></TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
                       {groupGears.map((gear) => (
                         <TableRow key={gear.id} className="border-white/10 hover:bg-white/5">
-                          <TableCell className="font-mono text-sm text-zinc-500">
+                          <TableCell className="font-mono text-lg text-zinc-500">
                             G-{gear.id.slice(-4).toUpperCase()}
                           </TableCell>
-                          <TableCell className="text-zinc-300">{gear.name}</TableCell>
-                          <TableCell className="text-zinc-400">{gear.teeth}</TableCell>
-                          <TableCell className="text-zinc-400">{gear.material}</TableCell>
+                          <TableCell className="text-lg text-zinc-300">{gear.name}</TableCell>
+                          <TableCell className="text-lg text-zinc-400">{gear.teeth}</TableCell>
+                          <TableCell className="text-lg text-zinc-400">{gear.material}</TableCell>
                           <TableCell>{getStatusBadge(gear.quantity)}</TableCell>
-                          <TableCell className="text-right text-zinc-300">{gear.quantity}</TableCell>
+                          <TableCell className="text-lg text-right text-zinc-300">{gear.quantity}</TableCell>
                           <TableCell>
                             <DropdownMenu>
                               <DropdownMenuTrigger asChild>
@@ -325,14 +322,12 @@ export default function GearsPage() {
         </div>
       )}
 
-      {/* Add Gear Dialog */}
       <AddGearDialog 
         open={addDialogOpen} 
         onOpenChange={setAddDialogOpen}
         onGearAdded={fetchGears}
       />
 
-      {/* Edit Gear Dialog */}
       <EditGearDialog
         gear={editingGear}
         open={!!editingGear}
